@@ -33,7 +33,6 @@ public class UserController {
 
     @GetMapping("/edit")
     public String edit(Model model, @RequestParam("id") Long id) {
-        //model.addAttribute("id", id);
         model.addAttribute("user", userDao.show(id));
         return "users/edit";
     }
