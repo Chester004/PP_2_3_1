@@ -11,8 +11,12 @@ import java.util.List;
 @Repository
 public class UserDAO {
 
+    private final EntityManager em;
+
     @Autowired
-    private EntityManager em;
+    public UserDAO(EntityManager em) {
+        this.em = em;
+    }
 
     @Transactional(readOnly = true)
     public List<User> index() {
