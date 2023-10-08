@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
-public class UserDAO {
+public class UserDAO implements DAO {
 
     private final EntityManager em;
 

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import web.DAO.UserDAO;
+import web.DAO.DAO;
 import web.models.User;
 
 @Controller
@@ -12,11 +12,11 @@ import web.models.User;
 public class UserController {
 
     @Autowired
-    private UserDAO userDao;
+    private DAO dao;
 
     @GetMapping()
     public String index(Model model) {
-        model.addAttribute("users", userDao.index());
+        model.addAttribute("users", dao.index());
         return "users/all";
     }
 
@@ -27,25 +27,25 @@ public class UserController {
 
     @PostMapping
     public String create(@ModelAttribute("user") User user) {
-        userDao.save(user);
+        dao.save(user);
         return "redirect:/";
     }
 
     @GetMapping("/edit")
     public String edit(Model model, @RequestParam("id") Long id) {
-        model.addAttribute("user", userDao.show(id));
+        model.addAttribute("user", dao.show(id));
         return "users/edit";
     }
 
     @PostMapping("/update")
     public String update(@ModelAttribute("user") User user, @RequestParam("id") Long id) {
-        userDao.update(id, user);
+        dao.update(id, user);
         return "redirect:/";
     }
 
     @PostMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
-        userDao.delete(id);
+        dao.delete(id);
         return "redirect:/";
     }
 

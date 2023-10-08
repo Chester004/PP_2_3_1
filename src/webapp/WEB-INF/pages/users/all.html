@@ -17,13 +17,18 @@
             text-align: center; /* Выравнивание текста по центру */
         }
 
+        /* Стиль для заголовков таблицы */
+        .user-table th {
+            font-size: 24px; /* Увеличиваем размер заголовков на 10 пикселей */
+            background-color: lightgray; /* Добавляем фоновый цвет */
+        }
+
         .user-container {
             display: table-row; /* Каждый контейнер пользователя - это строка таблицы */
         }
 
         .user-container h1 {
-            display: table-cell; /* Каждый элемент в контейнере - это ячейка таблицы */
-            padding-right: 5px; /* Добавляем небольшой отступ между текстом и рамкой */
+            font-size: 14px; /* Уменьшаем размер текста */
         }
 
         .button-container {
@@ -39,6 +44,12 @@
 <body>
 <div>
     <table class="user-table">
+        <tr> <!-- Заголовки таблицы -->
+            <th>Name</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
         <th:block th:each="user : ${users}">
             <tr class="user-container">
                 <td><h1 th:text="${user.getFirstName()}">FirstName</h1></td>
