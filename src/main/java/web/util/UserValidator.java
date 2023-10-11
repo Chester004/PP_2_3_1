@@ -1,4 +1,4 @@
-package web.utils;
+package web.util;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

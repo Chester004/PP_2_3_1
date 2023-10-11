@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import web.model.User;
 import web.service.UserService;
-import web.utils.UserValidator;
+import web.util.UserValidator;
 
 import javax.validation.Valid;
 
